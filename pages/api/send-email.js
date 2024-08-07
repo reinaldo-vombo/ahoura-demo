@@ -1,7 +1,8 @@
-import { render } from '@react-email/components';
+// import { render } from '@react-email/components';
 import nodemailer from 'nodemailer';
-import { AhouraWelcomeEmail } from '../../components/email/Wellcome';
+
 export const runtime = 'edge';
+
 export default async function handler(req, res) {
    if (req.method === 'POST') {
      const { name, email, message } = req.body;
@@ -16,13 +17,13 @@ export default async function handler(req, res) {
       },
    });
 
-   const emailHtml = render(<AhouraWelcomeEmail userName={name} />);
+   // const emailHtml = render(<AhouraWelcomeEmail userName={name} />);
 
    const options = {
       from: process.env.SMTP_EMAIL_FROM,
       to: email,
       subject: 'hello world',
-      html: emailHtml,
+      html: '<p>hello</p>',
    };
 
    try {
