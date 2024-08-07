@@ -1,7 +1,7 @@
 import { render } from '@react-email/components';
 import nodemailer from 'nodemailer';
 import { AhouraWelcomeEmail } from '../../components/email/Wellcome';
-
+export const runtime = 'edge';
 export default async function handler(req, res) {
    if (req.method === 'POST') {
      const { name, email, message } = req.body;
